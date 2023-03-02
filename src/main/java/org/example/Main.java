@@ -1,9 +1,6 @@
 package org.example;
 
-import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.List;
-import java.util.Scanner;
+import java.util.*;
 
 public class Main {
     public static void main(String[] args) {
@@ -35,10 +32,14 @@ public class Main {
             }
 
             if (command.equals("목록")) {
+                List<Integer> keySet = new ArrayList<>(wiseSayings.keySet());
+                Collections.reverse(keySet);
+
+
                 System.out.println("번호 / 작가 / 명언");
                 System.out.println("----------------------");
-                for(int i = num; i > 0; i--) {
-                    System.out.println(i + " / " + wiseSayings.get(i).getAuthor() + " / " +  wiseSayings.get(i).getContent());
+                for(Integer key : keySet) {
+                    System.out.println(key + " / " + wiseSayings.get(key).getAuthor() + " / " +  wiseSayings.get(key).getContent());
                 }
             }
 
