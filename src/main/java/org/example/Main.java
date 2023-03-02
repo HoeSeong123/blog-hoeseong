@@ -35,9 +35,9 @@ public class Main {
                 List<Integer> keySet = new ArrayList<>(wiseSayings.keySet());
                 Collections.reverse(keySet);
 
-
                 System.out.println("번호 / 작가 / 명언");
                 System.out.println("----------------------");
+
                 for(Integer key : keySet) {
                     System.out.println(key + " / " + wiseSayings.get(key).getAuthor() + " / " +  wiseSayings.get(key).getContent());
                 }
@@ -45,7 +45,12 @@ public class Main {
 
             if (command.contains("삭제?id=")) {
                 int id = Integer.parseInt(command.split("=")[1]);
-                System.out.println(id + "번 명언이 삭제되었습니다.");
+                if(wiseSayings.containsKey(id) != true) {
+                    System.out.println(id + "번 명령이 존재하지 않습니다.");
+                } else {
+                    System.out.println(id + "번 명언이 삭제되었습니다.");
+                    wiseSayings.remove(id);
+                }
             }
             if (command.equals("종료")) {
                 break;
