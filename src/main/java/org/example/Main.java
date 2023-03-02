@@ -40,6 +40,11 @@ public class Main {
                     System.out.println( wiseSayings.get(i - 1).getId() + " / " + wiseSayings.get(i - 1).getAuthor() + " / " +  wiseSayings.get(i - 1).getContent());
                 }
             }
+
+            if (command.contains("삭제?id=")) {
+                int id = Integer.parseInt(command.split("=")[1]);
+                System.out.println(id + "번 명언이 삭제되었습니다.");
+            }
             if (command.equals("종료")) {
                 break;
             }
