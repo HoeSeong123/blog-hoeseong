@@ -1,6 +1,7 @@
 package org.example;
 
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
 import java.util.Scanner;
 
@@ -8,7 +9,8 @@ public class Main {
     public static void main(String[] args) {
         Scanner sc = new Scanner(System.in);
         int num = 0;
-        List<WiseSaying> wiseSayings = new ArrayList<>();
+        HashMap<Integer, WiseSaying> wiseSayings = new HashMap<>();
+       // List<WiseSaying> wiseSayings = new ArrayList<>();
 
         System.out.println("== 명언 앱 ==");
 
@@ -28,16 +30,15 @@ public class Main {
                 wiseSaying.setAuthor(sc.nextLine());
 
                 System.out.println(num + "번 명언이 등록되었습니다.");
-                wiseSaying.setId(num);
 
-                wiseSayings.add(wiseSaying);
+                wiseSayings.put(num, wiseSaying);
             }
 
             if (command.equals("목록")) {
                 System.out.println("번호 / 작가 / 명언");
                 System.out.println("----------------------");
                 for(int i = num; i > 0; i--) {
-                    System.out.println( wiseSayings.get(i - 1).getId() + " / " + wiseSayings.get(i - 1).getAuthor() + " / " +  wiseSayings.get(i - 1).getContent());
+                    System.out.println(i + " / " + wiseSayings.get(i).getAuthor() + " / " +  wiseSayings.get(i).getContent());
                 }
             }
 
@@ -53,17 +54,8 @@ public class Main {
 }
 
 class WiseSaying {
-    private int id;
     private String content;
     private String author;
-
-    public int getId() {
-        return id;
-    }
-
-    public void setId(int id) {
-        this.id = id;
-    }
 
     public String getContent() {
         return content;
