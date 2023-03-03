@@ -1,4 +1,4 @@
-package org.answer_by_teacher;
+package org.answer_by_teacher.wiseSaying.entity;
 
 public class WiseSaying {
     private long id;
