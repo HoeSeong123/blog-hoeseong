@@ -1,5 +1,6 @@
 package org.answer_by_teacher.wiseSaying.controller;
 
+import org.answer_by_teacher.Container;
 import org.answer_by_teacher.wiseSaying.entity.WiseSaying;
 
 import java.util.ArrayList;
@@ -7,12 +8,10 @@ import java.util.List;
 import java.util.Scanner;
 
 public class WiseSayingController {
-    private final Scanner sc;
     private long lastWiseSayingId;
     private final List<WiseSaying> wiseSayings;
 
-    public WiseSayingController(Scanner sc) {
-        this.sc = sc;
+    public WiseSayingController() {
         lastWiseSayingId = 0;
         wiseSayings = new ArrayList<>();
     }
@@ -20,9 +19,9 @@ public class WiseSayingController {
     public void write() {
         long id = lastWiseSayingId + 1;
         System.out.print("명언 : ");
-        String content = sc.nextLine().trim();
+        String content = Container.getScanner().nextLine().trim();
         System.out.print("작가 : ");
-        String authorName = sc.nextLine().trim();
+        String authorName = Container.getScanner().nextLine().trim();
 
         WiseSaying wiseSaying = new WiseSaying(id, content, authorName);
         wiseSayings.add(wiseSaying);
