@@ -5,7 +5,6 @@ import org.answer_by_teacher.wiseSaying.entity.WiseSaying;
 
 import java.util.ArrayList;
 import java.util.List;
-import java.util.Scanner;
 
 public class WiseSayingController {
     private long lastWiseSayingId;
@@ -37,7 +36,7 @@ public class WiseSayingController {
         for (int i = wiseSayings.size() - 1 ; i >= 0; i--) {
             WiseSaying wiseSaying = wiseSayings.get(i);
 
-            System.out.printf("%d / %s / %s\n", wiseSaying.getId(), wiseSaying.getAuthor(), wiseSaying.getContent());
+            System.out.printf("%d / %s / %s\n", wiseSaying.getId(), wiseSaying.getAuthorName(), wiseSaying.getContent());
 
         }
     }

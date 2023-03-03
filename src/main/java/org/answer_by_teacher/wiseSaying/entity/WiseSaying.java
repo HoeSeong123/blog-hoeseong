@@ -3,12 +3,12 @@ package org.answer_by_teacher.wiseSaying.entity;
 public class WiseSaying {
     private long id;
     private String content;
-    private String author;
+    private String authorName;
 
     public WiseSaying(long id, String content, String author) {
         this.id = id;
         this.content = content;
-        this.author = author;
+        this.authorName = author;
     }
 
     public long getId() {
@@ -27,11 +27,11 @@ public class WiseSaying {
         this.content = content;
     }
 
-    public String getAuthor() {
-        return author;
+    public String getAuthorName() {
+        return authorName;
     }
 
-    public void setAuthor(String author) {
-        this.author = author;
+    public void setAuthorName(String authorName) {
+        this.authorName = authorName;
     }
 }
