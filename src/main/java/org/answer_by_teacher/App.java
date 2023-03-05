@@ -29,21 +29,12 @@ public class App {
             } else if (command.equals("목록")) {
                 wiseSayingController.list();
             } else if (command.startsWith("삭제")) {
-                String[] commandBits = command.split("\\?", 2);
-                String actionCode = commandBits[0];
-                Map<String, String> params = new HashMap<>();
-                String[] paramsBits = commandBits[1].split("&");
+                Rq rq = new Rq(command);
 
-                for(String paramStr : paramsBits) {
-                    String[] paramStrBits = paramStr.split("=", 2);
-                    String key = paramStrBits[0];
-                    String value = paramStrBits[1];
-
-                    params.put(key, value);
-                }
-
-                System.out.printf("actionCode : %s\n", actionCode);
-                System.out.printf("params : %s\n", params);
+                System.out.printf("actionCode : %s\n", rq.getActionCode());
+                System.out.printf("params.id : %s\n", rq.getParam("id"));
+                System.out.printf("params.authorName : %s\n", rq.getParam("authorName"));
+                System.out.printf("params.content : %s\n", rq.getParam("content"));
             }
         }
     }
